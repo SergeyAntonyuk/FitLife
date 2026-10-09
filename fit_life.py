@@ -27,8 +27,7 @@ def calc_bmi(user_weight, user_height):
     # расчёт bmi (Индекс массы тела)
     bmi = (user_weight / (user_height ** 2))
     # округляем до 1 знака после запятой
-    bmi = round(bmi, 1)
-    return bmi
+    return round(bmi, 1)
 
 
 # Подсчет воды: вес * 30 мл
@@ -39,8 +38,12 @@ def calc_water_needed(user_weight):
     # переводим в литры
     water_liters = (water_ml / ONE_LITER)
     # округляем до 1 знака после запятой
-    water_needed = round(water_liters, 1)
-    return water_needed
+    return round(water_liters, 1)
+
+
+# Вычисляем ИМТ и норму воды
+bmi = calc_bmi(user_weight, user_height)
+water_needed = calc_water_needed(user_weight)
 
 
 # 4. Вывод красивого результата
@@ -51,8 +54,8 @@ print('-' * 40)
 # Выводим имя и возраст.
 print(f'Отчет для пользователя: {user_name}, ({user_age} г.)')
 # Выводим ИМТ (округленный до 1 знака) и норму воды.
-print(f'Твой Индекс Массы Тела: {calc_bmi(user_weight, user_height)}')
-print(f'Твоя норма воды: {calc_water_needed(user_weight)} л. в день')
+print(f'Твой Индекс Массы Тела: {bmi}')
+print(f'Твоя норма воды: {water_needed} л. в день')
 print()
 print('Расчёт окончен. Будьте здоровы!')
 print('-' * 40)
